@@ -1,0 +1,9 @@
+int val=0x87654321;
+byte_pointer valp=&val;
+show_bytes(valp,1);/*A*/
+show_bytes(valp,2);/*B*/
+show_bytes(valp,3);/*C*/
+
+A.大端法: 87                小端法:21
+B.大端法: 87 65             小端法:21 43
+C.大端法: 87 65 43          小端法:21 43 65
