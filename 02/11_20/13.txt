@@ -1,0 +1,2 @@
+A.  bis(x,y);
+B.  bis(bic(x,y),bic(y,x))//理解答案，很有意思
