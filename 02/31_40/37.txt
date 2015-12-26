@@ -1,0 +1,5 @@
+----源自答案----->
+    A.无影响,原因：malloc在linux下的实现原型为void * malloc(size_t size);
+（命令man malloc即可查看其原型），于是会发生一次隐式类型转换，将long long
+转换为unsigned int。这让该程序与没改没有关系。
+    B.修改方案是，让其在出错的情况下返回null以避免出错的情况发生。
