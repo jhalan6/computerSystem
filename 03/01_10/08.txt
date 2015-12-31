@@ -1,0 +1,5 @@
+movl    8(%ebp),%eax
+sall    $2,%eax
+movl    12(%ebp),%ecx
+sarl    %ecx,%eax-----答案----->sarl    %cl,%eax
+//注意：移位操作的第一个操作数必须为立即数或者%cl寄存器中的数

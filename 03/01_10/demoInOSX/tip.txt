@@ -1,0 +1,4 @@
+在mac OSX下由于系统文件制式的原因，并没有objdump程序，用otool替代之。
+在这几个小程序中otool的使用方式主要有两种：
+    otool -tV   [file]  这种方式类似于objdump -d
+    otool -t    [file]  这种方式得到的是十六进制表示的字节码
