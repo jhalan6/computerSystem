@@ -1,5 +1,5 @@
 movl    8(%ebp),%eax
-movl    $0,%edx
+movl    $0,%edx--改--> xorl  %edx,%edx
 divl    12(%ebp)
 movl    %eax,4(%esp)
 movl    %edx,(%esp)

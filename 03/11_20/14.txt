@@ -1,0 +1,16 @@
+A.int 
+    a!=0
+    ---->
+    int a!=0
+    unsigned a!=0
+    unsigned a>0
+B.short/unsigned short
+    a==0
+C.char
+    a>0
+D.unsigned short
+    a>0
+    ---->
+    unsigned short a>0
+    unsigned short a!=0
+

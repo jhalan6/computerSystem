@@ -1,0 +1,8 @@
+A. int 
+    a<b
+B. short 
+    a>=b
+C. unsigned char 
+    a<b
+D. int/unsigned/long/unsigned long
+    a!=b

@@ -1,0 +1,38 @@
+A.  %edx维护的是一个a+b的值,a+b的值初始化时是a+b,
+    后因a++而导致下次的a+b的值也要+1
+B.  寄存器      变量        初始值
+    %ecx        a           a
+    %ebx        b           b
+    %edx        a+b         a+b
+    %eax        result      1
+C.  
+    movl    8(%ebp),%ecx            get a
+    movl    12(%ebp),%ebx           get b
+    movl    $1,%eax                 get result
+    compl   %ebx,%ecx               
+    jge     .L11                    if(a>=b) goto .L11
+    leal    (%ebx,%ecx),%edx        apb=a+b
+    movl    $1,%eax                 result=1
+.L12:
+    imull   %edx,%eax               result*=apb
+    addl    $1,%ecx                 a++
+    addl    $1,%edx                 apb++
+    cmpl    %ecx,%ebx               
+    jg      .L12                    if(b>a)goto .L12
+.L11:
+
+D.
+    int loop_while_goto(int a,int b){
+        int result=1;
+        if(a>=b)
+            goto done;
+        int apb=a+b;
+loop:
+        result*=apb;
+        a++;
+        apb++;
+        if(b>a)
+            goto loop;
+done:
+        return result;
+    }

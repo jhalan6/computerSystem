@@ -1,0 +1,18 @@
+A.  寄存器      变量        初始化
+    %eax        x           x
+    %ecx        y           y
+    %edx        n           n
+B.  test-expr       第6行
+    body-statement  3~5
+C.  movl    8(%ebp),%eax    get x
+    movl    12(%ebp),%ecx   get y
+    movl    16(%ebp),%edx   get n
+  .L2:                      循环体
+    addl    %edx,%eax       x+=n
+    imull   %edx,%ecx       y*=n
+    subl    $1,%edx         n--
+    testl   %edx,%edx       
+    jle .L5                 if(n<=0) goto .L5
+    cmpl    %edx,%ecx       
+    jl      .L2             if(y<n) goto .L2
+  .L5                       return
