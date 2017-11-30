@@ -1,0 +1,24 @@
+A.  在直接翻译成while的情况下会导致进入死循环，不断的判断、跳转回循环
+    不能直行到每次循环都应执行到的i++部分。
+B.  int sum=0;
+    int i=0;
+    goto first;
+loop:
+    i++;
+first:
+    if(i&1)
+        goto loop;
+    sum+=1;
+    if(i<10)
+        goto loop;
+
+---answer--->
+    int sum=0;
+    int i=0;
+    while(i<10){
+        if(i&1)
+            goto update;
+        sum+=1;
+update:
+        i++;
+    }
